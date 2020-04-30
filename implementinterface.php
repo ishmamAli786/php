@@ -1,4 +1,5 @@
 <?php
+//implementing singal interface in a singal class
 interface Father{
     const marks=101;
     function display();
