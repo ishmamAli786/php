@@ -5,9 +5,16 @@
 
 $con=mysqli_connect('localhost','root','','db') or die("cannot create connection with database");
 //select all data
-$q="select * from new_tab";
+$q="select * from new_tab where id=?";
 // prepared statment
 $result=mysqli_prepare($con,$q);
+
+//Bind parameter
+mysqli_stmt_bind_param($result,'i',$id);
+$id=2;
+// i denote data type
+
+
 //Bind result set in variable
 //variable name can be different but similare is recomanded
 mysqli_stmt_bind_result($result,$id,$name,$roll,$address);
@@ -26,6 +33,12 @@ echo "ID : ".$id."Name: ".$name."Roll :".$roll."Address: ".$address."<br>";*/
 while(mysqli_stmt_fetch($result)){
     echo "ID : ".$id."Name: ".$name."Roll :".$roll."Address: ".$address."<br>";
 }
+
+
+//close prepared statment
+mysqli_stmt_close($result);
+//close connection
+mysqli_stmt_close($con);
 
 
 
