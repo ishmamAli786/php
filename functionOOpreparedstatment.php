@@ -21,4 +21,12 @@
 //for select
 //bind_result() it bind variable to prepared a statement for result storage
 //it return true on success and false on failure
+
+//store_result() it transfer a result set from a prepared stament 
+// it retuen true on success and false on failure
+
+
+//num_rows it return the  number of rows in statment result set
+
+//free_result() it frees the result memory associated with the statment,which was allocated by store_result()
 ?>
